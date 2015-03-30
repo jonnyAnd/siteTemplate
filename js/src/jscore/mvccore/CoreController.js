@@ -9,8 +9,6 @@ CoreController.prototype.init = function(view, model){
   this._view = view;
 	this._model = model;
   this._sceneArray = [];
-
-
   this._view.init();
   this.setupScenes();
 }

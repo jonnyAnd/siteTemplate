@@ -14,5 +14,6 @@ Controller.prototype.setupScenes = function(){
 
   //This is a test!!, move to game
   this.addScene("TEST_SCENE", new TestScene(), new TestSceneModel(), new TestSceneView());
-  this.showScene("TEST_SCENE");
+  this.addScene("START_SCENE", new StartScene(), new StartSceneModel(), new StartSceneView());
+  this.showScene("START_SCENE");
 }

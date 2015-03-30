@@ -15,7 +15,6 @@ CoreView.prototype.setCurrentScene = function(selectedScene){
   this.currentScene.onSetAsCurrentScene();
 }
 
-
 CoreView.prototype.setupStage = function(){
   var interactive = true;
 	stage = new PIXI.Stage(0xCCCCCC, interactive);
@@ -33,8 +32,7 @@ CoreView.prototype.getViewportDimension = function(){
 }
 
 CoreView.prototype.updateRender = function(){
-	renderer.resize(this.getViewportDimension().w,this.getViewportDimension().h)
-	renderer.x = 0;
+	renderer.resize(this.getViewportDimension().w,this.getViewportDimension().h);
   this.currentScene.updateRender();
 	requestAnimFrame(updateRender);
   renderer.render(stage);

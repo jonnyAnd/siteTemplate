@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
- <head>
+ <head >
  	<meta charset="utf-8">
  	<meta name="description" content="Template page">
 	<meta name="author" content="eino.co.uk">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
 	<link type="text/css" rel="stylesheet" href="css/main.css" />
 
@@ -16,22 +16,74 @@
 
  <body bgcolor="#CCCCCC" onload="init()">
 
- 	<div class="bg">
-	</div>
 
-	<script src="js/libs/TweenMax.min.js"></script>
-	<script src="js/libs/jquery-1.11.1.min.js"></script>
+
 	<script src="js/libs/pixi.dev.js"></script>
+	<script src="js/libs/jquery-1.11.1.min.js"></script>
 
-	<script src="js/src/Main.js"></script>
-	
+    <script src="js/src/jscore/classcore/ClassCore.js"></script>
+    <script src="js/src/jscore/mvccore/CoreModel.js"></script>
+    <script src="js/src/jscore/mvccore/CoreView.js"></script>
+    <script src="js/src/jscore/mvccore/CoreController.js"></script>
+    <script src="js/src/jscore/scenecore/CoreSceneModel.js"></script>
+    <script src="js/src/jscore/scenecore/CoreSceneView.js"></script>
+    <script src="js/src/jscore/scenecore/CoreScene.js"></script>
+
+
+    <script src="js/src/View.js"></script>
+    <script src="js/src/Model.js"></script>
+    <script src="js/src/Controller.js"></script>
+
+    <script src="js/src/scenes/testScene/TestSceneModel.js"></script>
+    <script src="js/src/scenes/testScene/TestSceneView.js"></script>
+    <script src="js/src/scenes/testScene/TestScene.js"></script>
+
+    <script src="js/src/scenes/startscene/StartSceneModel.js"></script>
+    <script src="js/src/scenes/startscene/StartSceneView.js"></script>
+    <script src="js/src/scenes/startscene/StartScene.js"></script>
+
+    <script src="js/src/Main.js"></script>
+
 	<script>
 	    function init() {
 	        new Main()
 	    }
 	</script>
 
-	<canvas id="mainCanvas" class="canvas"></canvas>
+     <script src="js/src/~debugcode/stats.js"></script>
+
+     <script>
+	   ///STATS DEBUGGER
+
+        var stats = new Stats();
+        stats.setMode(1); // 0: fps, 1: ms
+
+        // align top-left
+        stats.domElement.style.position = 'absolute';
+        stats.domElement.style.left = '0px';
+        stats.domElement.style.top = '0px';
+
+        document.body.appendChild( stats.domElement );
+
+        var update = function () {
+
+            stats.begin();
+
+            // monitored code goes here
+
+            stats.end();
+
+            requestAnimationFrame( update );
+
+        };
+
+        requestAnimationFrame( update );
+
+
+	</script>
+
+
+
 
  </body>
 
