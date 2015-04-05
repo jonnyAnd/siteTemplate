@@ -12,7 +12,9 @@ CoreView.prototype.init = function(view, model){
 
 CoreView.prototype.setCurrentScene = function(selectedScene){
   this.currentScene = selectedScene;
+
   this.currentScene.onSetAsCurrentScene();
+  this.currentScene.addEventListener("mooSET_SCENE_EVENT", this.onSetSceneEvent.bind(this));
 }
 
 CoreView.prototype.setupStage = function(){
@@ -37,6 +39,19 @@ CoreView.prototype.updateRender = function(){
 	requestAnimFrame(updateRender);
   renderer.render(stage);
 }
+
+
+CoreView.prototype.onSetSceneEvent = function(event){
+
+  console.log("CoreView.prototype.onSetSceneEvent "+event.data.sceneNameToSet);
+
+
+}
+
+
+
+
+
 
 CoreView.prototype.imageExists = function(image_url){
 

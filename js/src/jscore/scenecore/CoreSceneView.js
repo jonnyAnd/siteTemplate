@@ -18,14 +18,7 @@ CoreSceneView.prototype.updateRender = function(){
   console.log("CoreSceneView.prototype.updateRender-->Override in app scene view!!!")
 }
 
-CoreSceneView.prototype.setAsCurrentScene = function(sceneName){
-  console.log("SET CURRENT SCENE"+sceneName)
-
-  // test code - data not getting through
-
-//  var eventObj:
-
-
-
-  this.dispatchEvent("TEST_EVENT", {sceneNameToSet:sceneName});
+CoreSceneView.prototype.gotoScene = function(sceneName){
+  console.log("CoreSceneView.prototype.setAsCurrentScene-->"+sceneName)
+  this.dispatchEvent(new CoreEvent("SET_SCENE_EVENT", {sceneNameToSet:sceneName}));
 }

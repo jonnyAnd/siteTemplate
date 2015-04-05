@@ -28,12 +28,11 @@ CoreController.prototype.addScene = function(sceneID, sceneCoreClass, sceneModel
 }
 
 CoreController.prototype.showScene = function(sceneID){
-
+  console.log("CoreController.prototype.showScene --> "+sceneID);
   for (i = 0; i < this._sceneArray.length; i++) {
     var s = this._sceneArray[i];
 
     if(sceneID == s.sceneID){
-      console.log("SceneFound!!!!")
       this._view.setCurrentScene(s)
     }
   }

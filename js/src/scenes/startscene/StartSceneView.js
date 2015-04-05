@@ -11,7 +11,7 @@ StartSceneView.prototype.init = function(){
 }
 
 StartSceneView.prototype.onSetAsCurrentScene = function(){
-  console.log("onSetAsCurrentScene")
+  console.log("StartSceneView.prototype.onSetAsCurrentScene")
 
 
   ///TEST pixi!
@@ -37,7 +37,7 @@ StartSceneView.prototype.onSetAsCurrentScene = function(){
 }
 
 StartSceneView.prototype.onClickMurrey = function(data){
-  this.setAsCurrentScene("TEST_SCENE");
+  this.gotoScene("TEST_SCENE");
 }
 
 

@@ -10,7 +10,7 @@ ClassCore.prototype.addEventListener = function(eventType, callBackFunction){
   }
 
   // if already in array, then remove it.
-  var indexOfEvent = this.getIndexOfEvent(eventType);
+  var indexOfEvent = this.getIndexOfEventFromTypeString(eventType);
   if(indexOfEvent>-1){
     this.removeEventListener(eventType);
   }
@@ -19,23 +19,16 @@ ClassCore.prototype.addEventListener = function(eventType, callBackFunction){
   this._events.push({type:eventType, callBack:callBackFunction});
 }
 
-ClassCore.prototype.dispatchEvent = function(eventType, eventData){
-  console.log("ClassCore.dispatchEvent "+eventType);
+ClassCore.prototype.dispatchEvent = function(event){//eventType, eventData){
+  console.log("ClassCore.dispatchEvent "+event.type);
 
-  if (this.isNull(this._events)){
-    console.log("ClassCore.prototype.dispatchEvent - No Events stored");
-  }else{
-
-    var indexOfEvent = this.getIndexOfEvent(eventType);
+    var indexOfEvent = this.getIndexOfEventFromTypeString(event.type);
 
     if(indexOfEvent>-1){
-      var eventObject = this._events[indexOfEvent];
-      eventObject.data = eventData;
-      console.log("EVENT FOUND - "+eventType);
-      eventObject.callBack(eventObject);
-
+      var eventReferenceObject = this._events[indexOfEvent];
+      eventReferenceObject.callBack(event);
     }
-  }
+
 }
 
 
@@ -45,7 +38,7 @@ ClassCore.prototype.removeEventListener = function(eventType){
     console.log("ClassCore.prototype.removeEventListener - No Events stored");
   }else{
 
-    var indexOfEvent = this.getIndexOfEvent(eventType);
+    var indexOfEvent = this.getIndexOfEventFromTypeString(eventType);
 
     if(indexOfEvent>-1){
       this._events.shift(indexOfEvent);
@@ -54,7 +47,7 @@ ClassCore.prototype.removeEventListener = function(eventType){
 }
 
 
-ClassCore.prototype.getIndexOfEvent = function(eventType){
+ClassCore.prototype.getIndexOfEventFromTypeString = function(eventType){
   for (i = 0; i < this._events.length; i++){
       var eventObject = this._events[i]
 

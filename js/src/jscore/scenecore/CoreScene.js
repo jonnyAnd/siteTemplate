@@ -11,7 +11,7 @@ CoreScene.prototype.addView = function(sceneView){
   console.log("adding view")
 
   this._view = sceneView;
-  this._view.addEventListener("TEST_EVENT", this.eventTest.bind(this));
+  this._view.addEventListener("SET_SCENE_EVENT", this.onSetSceneEvent.bind(this));
 }
 
 CoreScene.prototype.addModel = function(sceneModel){
@@ -32,13 +32,11 @@ CoreScene.prototype.onSetAsCurrentScene = function(){
   this._view.onSetAsCurrentScene();
 }
 
+CoreScene.prototype.onSetSceneEvent = function(event){
 
-
-// TEST TEST
-CoreScene.prototype.eventTest = function(event){
-
-  console.log("CoreScene.prototype.eventTest "+event.data.sceneNameToSet);
-
+  console.log("CoreScene.prototype.onSetSceneEvent "+event.data.sceneNameToSet);
+  this._view.removeEventListener("SET_SCENE_EVENT");
+ // this.dispatchEvent(event);
 
 }
-// TEST TEST
+
