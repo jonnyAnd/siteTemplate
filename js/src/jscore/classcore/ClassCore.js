@@ -2,7 +2,7 @@ function ClassCore(){
 }
 
 ClassCore.prototype.addEventListener = function(eventType, callBackFunction){
-  console.log("ClassCore.addEventListener "+eventType+" - callBackFunction-->"+callBackFunction);
+  //console.log("ClassCore.addEventListener "+eventType+" - callBackFunction-->"+callBackFunction);
 
   // create event array if null
   if (this.isNull(this._events)){
@@ -19,7 +19,7 @@ ClassCore.prototype.addEventListener = function(eventType, callBackFunction){
   this._events.push({type:eventType, callBack:callBackFunction});
 }
 
-ClassCore.prototype.dispatchEvent = function(event){//eventType, eventData){
+ClassCore.prototype.dispatchEvent = function(event){
   console.log("ClassCore.dispatchEvent "+event.type);
 
     var indexOfEvent = this.getIndexOfEventFromTypeString(event.type);
@@ -28,9 +28,7 @@ ClassCore.prototype.dispatchEvent = function(event){//eventType, eventData){
       var eventReferenceObject = this._events[indexOfEvent];
       eventReferenceObject.callBack(event);
     }
-
 }
-
 
 ClassCore.prototype.removeEventListener = function(eventType){
   console.log("ClassCore.removeEventListener - "+eventType);

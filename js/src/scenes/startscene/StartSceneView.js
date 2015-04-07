@@ -13,37 +13,78 @@ StartSceneView.prototype.init = function(){
 StartSceneView.prototype.onSetAsCurrentScene = function(){
   console.log("StartSceneView.prototype.onSetAsCurrentScene")
 
+  // new artist
+  //this.spotBlob = new SpotifyArtistBlob();
+ // this.spotBlob.init("0OdUWJ0sBjDrqHygGUXeCF");
+  //this.spotBlob.init("6A43Djmhbe9100UwnI7epV");
 
-  ///TEST pixi!
-  var texture = PIXI.Texture.fromImage("resources/img/img2.jpg");
-	// create a new Sprite using the texture
-	this.murrey = new PIXI.Sprite(texture);
+  //this.spotBlob.addEventListener("SPOTIFY_BLOB_BASE_INFO_READY", this.spotBlobBaseInfoReady.bind(this));
+  //this.spotBlob.addEventListener("SPOTIFY_BLOB_RELATED_INFO_READY", this.spotBlobRelatedInfoReady.bind(this));
+
+
+  //revert scene keep spot
+}
+
+StartSceneView.prototype.spotBlobBaseInfoReady = function(){
+
+  console.log("spotBlobReady")
+
+  this.showBlob();
+
+
+
+
+
+
+  //get tracks
+  this.spotBlob.removeEventListener("SPOTIFY_BLOB_BASE_INFO_READY");
+  //spot.getRelated();
+}
+
+
+StartSceneView.prototype.showBlob = function(){
+  // create a new Sprite using the texture
+	this.spotSprite = new PIXI.Sprite(PIXI.Texture.fromImage(spotBlob.medResImage));
 
   // center the sprites anchor point
-	this.murrey.anchor.x = 0.5;
-	this.murrey.anchor.y = 0.5;
+	this.spotSprite.anchor.x = 0.5;
+	this.spotSprite.anchor.y = 0.5;
 
 	// move the sprite t the center of the screen
-	this.murrey.position.x = 200;
-	this.murrey.position.y = 150;
+	this.spotSprite.position.x = 200;
+	this.spotSprite.position.y = 150;
 
-	stage.addChild(this.murrey);
+	this.addChild(this.spot);
 
-  // make the button interactive..
-	this.murrey.setInteractive(true);
-  this.murrey.buttonMode = true;
-	this.murrey.click = this.onClickMurrey.bind(this);//sorry buy js is mental
+
 
 }
 
+
+
+/*
+StartSceneView.prototype.spotBlobRelatedInfoReady = function(){
+  console.log("spotBlobRelatedInfoReady");
+  this.spot.loadTopTracks();
+
+}
+
+*/
+
+
+
+
+
+
 StartSceneView.prototype.onClickMurrey = function(data){
-  this.gotoScene("TEST_SCENE");
+  //this.gotoScene("TEST_SCENE");
+  this.gotoScene("START_SCENE");
+
 }
 
 
 StartSceneView.prototype.updateRender = function(){
   //console.log("updateRender")
-   this.murrey.rotation -= .01;
-
+  // this.spot.rotation -= .01;
 }
 

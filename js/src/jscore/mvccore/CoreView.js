@@ -6,16 +6,27 @@ function CoreView(){
   this.currentScene;
 }
 
+CoreView.prototype = new ClassCore();
+CoreView.prototype.constuctor = CoreView;
+CoreView.prototype.parent = ClassCore.prototype;
+
 CoreView.prototype.init = function(view, model){
   this.setupStage();
 }
 
 CoreView.prototype.setCurrentScene = function(selectedScene){
-  this.currentScene = selectedScene;
+  console.log("CoreView.prototype.setCurrentScene("+selectedScene+")")
 
+  this.currentScene = selectedScene;
   this.currentScene.onSetAsCurrentScene();
-  this.currentScene.addEventListener("mooSET_SCENE_EVENT", this.onSetSceneEvent.bind(this));
+  this.addEventsToScene();
 }
+
+CoreView.prototype.addEventsToScene = function(){
+   console.log("CoreView.prototype.addEventsToScene()")
+   this.currentScene.addEventListener("SET_SCENE_EVENT", this.onSetSceneEvent.bind(this));
+}
+
 
 CoreView.prototype.setupStage = function(){
   var interactive = true;
@@ -42,15 +53,13 @@ CoreView.prototype.updateRender = function(){
 
 
 CoreView.prototype.onSetSceneEvent = function(event){
+  console.log("CoreView.prototype.onSetSceneEvent"+event.data.sceneNameToSet);
 
-  console.log("CoreView.prototype.onSetSceneEvent "+event.data.sceneNameToSet);
 
 
+  //this.dispatchEvent(event);
+  this.dispatchEvent(new CoreEvent("SET_SCENE_EVENT", {sceneNameToSet:event.data.sceneNameToSet}));
 }
-
-
-
-
 
 
 CoreView.prototype.imageExists = function(image_url){

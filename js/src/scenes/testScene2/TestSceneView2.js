@@ -1,21 +1,21 @@
-function TestSceneView(){
-  console.log("TestSceneView");
+function TestSceneView2(){
+  console.log("TestSceneView2");
 }
 
-TestSceneView.prototype = new CoreSceneView();
-TestSceneView.prototype.constuctor = TestSceneView;
-TestSceneView.prototype.parent = CoreSceneView.prototype;
+TestSceneView2.prototype = new CoreSceneView();
+TestSceneView2.prototype.constuctor = TestSceneView2;
+TestSceneView2.prototype.parent = CoreSceneView.prototype;
 
-TestSceneView.prototype.init = function(){
-  console.log("TEST SCENE VIEW!!")
+TestSceneView2.prototype.init = function(){
+  console.log("TEST SCENE VIEW--2!!")
 }
 
-TestSceneView.prototype.onSetAsCurrentScene = function(){
+TestSceneView2.prototype.onSetAsCurrentScene = function(){
   console.log("onSetAsCurrentScene")
 
 
   ///TEST pixi!
-  var texture = PIXI.Texture.fromImage("resources/img/img.jpg");
+  var texture = PIXI.Texture.fromImage("resources/img/img2.jpg");
 	// create a new Sprite using the texture
 	this.murrey = new PIXI.Sprite(texture);
 
@@ -36,12 +36,12 @@ TestSceneView.prototype.onSetAsCurrentScene = function(){
 
 }
 
-TestSceneView.prototype.onClickMurrey = function(data){
+TestSceneView2.prototype.onClickMurrey = function(data){
   this.gotoScene("TEST_SCENE");
 }
 
 
-TestSceneView.prototype.updateRender = function(){
+TestSceneView2.prototype.updateRender = function(){
   //console.log("updateRender")
   this.murrey.rotation -= .01;
 
