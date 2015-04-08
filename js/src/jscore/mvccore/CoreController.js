@@ -40,16 +40,13 @@ CoreController.prototype.addEvents = function(event){
 
 CoreController.prototype.onSetSceneEvent = function(event){
   console.log("CoreController.prototype.onSetSceneEvent"+event.data.sceneNameToSet)
-
-
-
   this.showScene(event.data.sceneNameToSet);
 }
 
 
 CoreController.prototype.showScene = function(sceneID){
   console.log("CoreController.prototype.showScene --> "+sceneID);
-  for (i = 0; i < this._sceneArray.length; i++) {
+  for (var i = 0; i < this._sceneArray.length; i++) {
     var s = this._sceneArray[i];
 
     if(sceneID == s.sceneID){

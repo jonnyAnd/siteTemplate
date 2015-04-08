@@ -1,6 +1,4 @@
 function TestScene(){
-  console.log("TestScene")
-
 }
 
 TestScene.prototype = new CoreScene();

@@ -29,8 +29,8 @@ CoreScene.prototype.updateRender = function(){
 CoreScene.prototype.onSetAsCurrentScene = function(){
   console.log("CoreScene.prototype.onSetAsCurrentScene ");
 
-  this._view.addEventListener("SET_SCENE_EVENT", this.onSetSceneEvent.bind(this));
   this._view.onSetAsCurrentScene();
+  this._view.addEventListener("SET_SCENE_EVENT", this.onSetSceneEvent.bind(this));
 }
 
 CoreScene.prototype.onSetSceneEvent = function(event){

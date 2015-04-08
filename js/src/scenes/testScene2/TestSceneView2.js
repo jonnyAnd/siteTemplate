@@ -37,7 +37,7 @@ TestSceneView2.prototype.onSetAsCurrentScene = function(){
 }
 
 TestSceneView2.prototype.onClickMurrey = function(data){
-  this.gotoScene("TEST_SCENE");
+  this.gotoScene("SPLASH_SCENE");
 }
 
 

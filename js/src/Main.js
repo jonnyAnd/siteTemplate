@@ -27,7 +27,7 @@ function updateRender(){
 
 
 ////SpotStuff
-
+/*
 function testSpotBlob(){
 
   this.spot = new SpotifyArtistBlob();
@@ -53,3 +53,4 @@ function spotBlobRelatedInfoReady(){
   spot.loadTopTracks();
 
 }
+*/

@@ -67,7 +67,7 @@ SpotifyArtistBlob.prototype.getRelated = function(){
 
 SpotifyArtistBlob.prototype.onGetRelated = function(response) {
   this.relatedArtists=[];
-  for (i = 0; i < response.artists.length; i++){
+  for (var i = 0; i < response.artists.length; i++){
      this.relatedArtists.push(response.artists[i].id);
   }
 

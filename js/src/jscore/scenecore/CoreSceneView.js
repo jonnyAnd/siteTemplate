@@ -17,7 +17,7 @@ CoreSceneView.prototype.onSetAsCurrentScene = function(){
 CoreSceneView.prototype.cleanUp = function(){
   console.log("CoreSceneView.prototype.cleanUp")
 
-  for (i = 0; i < this._visualElements.length; i++){
+  for (var i = 0; i < this._visualElements.length; i++){
     stage.removeChild(this._visualElements.shift(i));
   }
 }
